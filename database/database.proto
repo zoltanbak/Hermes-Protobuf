@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package database;
+
+option java_package = "zb.hermes.database";
+option java_multiple_files = true;
+
+message CreateRequest {
+  string ownerId = 1;
+  string sensorId = 2;
+  string sensorType = 3;
+  int64 timestamp = 4;
+  int32 data = 5;
+}
+
+message ReadRequest {
+  string ownerId = 1;
+  string sensorId = 2;
+  string sensorType = 3;
+  int64 fromTime = 4;
+  int64 toTime = 5;
+}
+
+message ReadResponse {
+  string ownerId = 1;
+  string sensorId = 2;
+  string sensorType = 3;
+  int64 timestamp = 4;
+  int32 data = 5;
+}
+
+message UpdateRequest {
+  string ownerId = 1;
+  string sensorId = 2;
+  int64 timestamp = 3;
+  int32 data = 3;
+}
+
+message DeleteRequest {
+  string ownerId = 1;
+  string sensorId = 2;
+}
+
+service DatabaseService {
+  rpc Create(CreateRequest) returns (google.protobuf.Empty) {};
+  rpc Read(ReadRequest) returns (ReadResponse) {};
+  rpc Update(UpdateRequest) returns (google.protobuf.Empty) {};
+  rpc Delete(DeleteRequest) returns (DeleteResponse) {};
+  rpc CreateMultiple(stream CreateRequest) returns (google.protobuf.Empty) {};
+  rpc ReadMultiple(stream ReadRequest) returns (stream ReadResponse) {};
+  rpc UpdateMultiple(stream UpdateRequest) returns (stream google.protobuf.Empty) {};
+  rpc DeleteMultiple(stream DeleteRequest) returns (stream google.protobuf.Empty) {};
+}
