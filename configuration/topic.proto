@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package configuration;
+
+option java_package = "zb.hermes.configuration";
+option java_multiple_files = true;
+
+message TopicRequest {
+    string topic = 1;
+}
+
+service Topic {
+    rpc CreateNewTopic(TopicRequest) returns (google.protobuf.Empty) {};
+    rpc DeleteTopic(TopicRequest) returns (google.protobuf.Empty) {};
+}
