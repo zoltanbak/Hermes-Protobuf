@@ -8,15 +8,16 @@ option java_package = "zb.hermes.database";
 option java_multiple_files = true;
 
 message CreateRequest {
-  string ownerId = 1;
+  string customerId = 1;
   string sensorId = 2;
   string sensorType = 3;
-  int64 timestamp = 4;
-  int32 data = 5;
+  int64 sensorTimestamp = 4;
+  int64 acquisitionTimestamp = 5;
+  int32 data = 6;
 }
 
 message ReadRequest {
-  string ownerId = 1;
+  string customerId = 1;
   string sensorId = 2;
   string sensorType = 3;
   int64 fromTime = 4;
@@ -24,7 +25,7 @@ message ReadRequest {
 }
 
 message ReadResponse {
-  string ownerId = 1;
+  string customerId = 1;
   string sensorId = 2;
   string sensorType = 3;
   int64 timestamp = 4;
@@ -32,14 +33,14 @@ message ReadResponse {
 }
 
 message UpdateRequest {
-  string ownerId = 1;
+  string customerId = 1;
   string sensorId = 2;
   int64 timestamp = 3;
   int32 data = 4;
 }
 
 message DeleteRequest {
-  string ownerId = 1;
+  string customerId = 1;
   string sensorId = 2;
 }
 
