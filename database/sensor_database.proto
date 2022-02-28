@@ -44,7 +44,7 @@ message DeleteRequest {
   string sensorId = 2;
 }
 
-service DatabaseService {
+service SensorDatabaseService {
   rpc Create(CreateRequest) returns (google.protobuf.Empty) {};
   rpc Read(ReadRequest) returns (ReadResponse) {};
   rpc Update(UpdateRequest) returns (google.protobuf.Empty) {};
