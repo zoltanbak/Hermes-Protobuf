@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package configuration;
+
+option java_package = "zb.hermes.configuration";
+option java_multiple_files = true;
+
+message SensorConfigurationRequest {
+    string id = 1;
+    string type = 2;
+}
+
+service Sensor {
+    rpc CreateNewSensor(SensorConfigurationRequest) returns (google.protobuf.Empty) {};
+    rpc DeleteSensor(SensorConfigurationRequest) returns (google.protobuf.Empty) {};
+}
