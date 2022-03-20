@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "sensor/sensor_type.proto";
+
 import "google/protobuf/empty.proto";
 
 package database;
@@ -10,7 +12,7 @@ option java_multiple_files = true;
 message CreateRequest {
   string customerId = 1;
   string sensorId = 2;
-  string sensorType = 3;
+  sensor.SensorType sensorType = 3;
   int64 sensorTimestamp = 4;
   int64 acquisitionTimestamp = 5;
   int32 data = 6;
@@ -19,7 +21,7 @@ message CreateRequest {
 message ReadRequest {
   string customerId = 1;
   string sensorId = 2;
-  string sensorType = 3;
+  sensor.SensorType sensorType = 3;
   int64 fromTime = 4;
   int64 toTime = 5;
 }
@@ -27,7 +29,7 @@ message ReadRequest {
 message ReadResponse {
   string customerId = 1;
   string sensorId = 2;
-  string sensorType = 3;
+  sensor.SensorType sensorType = 3;
   int64 timestamp = 4;
   int32 data = 5;
 }

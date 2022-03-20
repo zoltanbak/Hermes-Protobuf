@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package sensor;
+
+option java_package = "zb.hermes.configuration";
+option java_multiple_files = true;
+
+enum SensorType {
+    NOT_SPECIFIED = 0;
+    TEMPERATURE = 1;
+    HUMIDITY = 2;
+    PRESSURE = 3;
+    ECG = 4;
+}
