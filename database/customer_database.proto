@@ -7,39 +7,39 @@ package database;
 option java_package = "zb.hermes.database";
 option java_multiple_files = true;
 
-message CreateRequest {
+message CreateCustomerRequest {
   string firstName = 1;
   string lastName = 2;
 }
 
-message ReadRequest {
+message ReadCustomerRequest {
   string id = 1;
 }
 
-message ReadResponse {
+message ReadCustomerResponse {
     string id = 1;
     string firstName = 2;
     string lastName = 3;
     int64 registeredOn = 4;
 }
 
-message UpdateRequest {
+message UpdateCustomerRequest {
     string id = 1;
     string firstName = 2;
     string lastName = 3;
 }
 
-message DeleteRequest {
+message DeleteCustomerRequest {
     string id = 1;
 }
 
 service CustomerDatabaseService {
-  rpc Create(CreateRequest) returns (google.protobuf.Empty) {};
-  rpc Read(ReadRequest) returns (ReadResponse) {};
-  rpc Update(UpdateRequest) returns (google.protobuf.Empty) {};
-  rpc Delete(DeleteRequest) returns (google.protobuf.Empty) {};
-  rpc CreateMultiple(stream CreateRequest) returns (google.protobuf.Empty) {};
-  rpc ReadMultiple(stream ReadRequest) returns (stream ReadResponse) {};
-  rpc UpdateMultiple(stream UpdateRequest) returns (stream google.protobuf.Empty) {};
-  rpc DeleteMultiple(stream DeleteRequest) returns (stream google.protobuf.Empty) {};
+  rpc Create(CreateCustomerRequest) returns (google.protobuf.Empty) {};
+  rpc Read(ReadCustomerRequest) returns (ReadCustomerResponse) {};
+  rpc Update(UpdateCustomerRequest) returns (google.protobuf.Empty) {};
+  rpc Delete(DeleteCustomerRequest) returns (google.protobuf.Empty) {};
+  rpc CreateMultiple(stream CreateCustomerRequest) returns (google.protobuf.Empty) {};
+  rpc ReadMultiple(stream ReadCustomerRequest) returns (stream ReadCustomerResponse) {};
+  rpc UpdateMultiple(stream UpdateCustomerRequest) returns (stream google.protobuf.Empty) {};
+  rpc DeleteMultiple(stream DeleteCustomerRequest) returns (stream google.protobuf.Empty) {};
 }
