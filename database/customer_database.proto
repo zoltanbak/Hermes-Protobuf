@@ -39,7 +39,8 @@ service CustomerDatabaseService {
   rpc Update(UpdateCustomerRequest) returns (google.protobuf.Empty) {};
   rpc Delete(DeleteCustomerRequest) returns (google.protobuf.Empty) {};
   rpc CreateMultiple(stream CreateCustomerRequest) returns (google.protobuf.Empty) {};
-  rpc ReadMultiple(stream ReadCustomerRequest) returns (stream ReadCustomerResponse) {};
+  rpc ReadAll(google.protobuf.Empty) returns (stream ReadCustomerResponse) {};
+  rpc ReadMultipleById(stream ReadCustomerRequest) returns (stream ReadCustomerResponse) {};
   rpc UpdateMultiple(stream UpdateCustomerRequest) returns (stream google.protobuf.Empty) {};
   rpc DeleteMultiple(stream DeleteCustomerRequest) returns (stream google.protobuf.Empty) {};
 }
